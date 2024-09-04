@@ -10,6 +10,7 @@ const Login = props => {
   const [errorMsg, setErrorMsg] = useState('')
 
   const onChangeHandler = event => {
+    setErrorMsg('')
     const {id, value} = event.target
     if (id === 'username') {
       setUsername(value)

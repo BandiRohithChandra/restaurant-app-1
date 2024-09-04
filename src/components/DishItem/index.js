@@ -25,7 +25,12 @@ const DishItem = ({dishDetails}) => {
   const onDecreaseQuantity = () =>
     setQuantity(prevState => (prevState > 0 ? prevState - 1 : 0))
 
-  const onAddItemToCart = () => addCartItem({...dishDetails, quantity})
+  const onAddItemToCart = () => {
+    if (quantity > 0) {
+      addCartItem({...dishDetails, quantity})
+      setQuantity(0)
+    }
+  }
 
   const renderControllerButton = () => (
     <div className="controller-container d-flex align-items-center bg-success">
